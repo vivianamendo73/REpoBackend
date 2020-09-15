@@ -8,8 +8,7 @@ let compras = [];
 function agregar() {
     console.log("Funcion Agregar");
     let producto = document.querySelector('#producto').value;
-    let precio =
-        parseInt(document.querySelector('#precio').value);
+    let precio = parseInt(document.querySelector('#precio').value);
     let renglon = {
         "producto": producto,
         "precio": precio
@@ -64,3 +63,4 @@ async function load() {
     }
 }
 load();
+console.log("termine");
