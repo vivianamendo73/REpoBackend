@@ -46,6 +46,7 @@ function mostrarTablaCompras() {
             <tr>
             <td>${r.producto}</td>
             <td>${r.precio}</td>
+            <td>${r.descripcion}</td>
             </tr>
             `;
     }
@@ -53,14 +54,28 @@ function mostrarTablaCompras() {
 }
 
 async function load() {
-    let container =
+ /*    let container =
         document.querySelector("#use-ajax");
-    let response = await fetch("http://localhost:3000/mock.json");
-    if (response.ok) {
-        let t = await response.json()
-        compras = t.compras;
-        container.innerHTML = mostrarTablaCompras();
-    }
+    container.innerHTML = "<h1>Loading..</h1>";
+    try {
+        let response = await fetch("http://localhost:3000/mock.json");
+        if (response.ok) {
+            let t = await response.json()
+            compras = t.compras;
+            container.innerHTML = mostrarTablaCompras();
+        }
+        else
+            container.innerHTML = "<h1>Error - Failed URL!</h1>";
+    } catch (error) {
+        container.innerHTML = "<h1>Conection Error</h1>";
+
+    } */
+
+    console.log("entree");
+    let r = await fetch('/producto');
+    compras = await r.json();
+    console.log(compras);
+    mostrarTablaCompras();
 }
-load();
-console.log("termine");
+//load();
+//console.log("termine");
