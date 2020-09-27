@@ -52,5 +52,18 @@ export class ProductoService {
     public getProductos(): Producto[] {
         return this.listaProductos;
     }
+    public create(prod: any):string{
+        console.log(prod);
+        const producto= new Producto(prod.nombreProducto,prod.precio);
 
+        if(producto.GetProducto() && producto.GetPrecio()){
+            fs.appendFileSync('producto.csv',
+            "\n" +
+            producto.GetProducto() + ","
+            + producto.GetPrecio());
+            return "ok"
+        }
+        else
+            return "No es un producto";
+    }
 }
